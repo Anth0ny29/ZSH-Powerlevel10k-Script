@@ -1,0 +1,1 @@
+# ZSH-Powerlevel10k-Script
