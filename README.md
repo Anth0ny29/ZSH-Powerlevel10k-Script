@@ -7,5 +7,4 @@ chmod +x ZSH-Powerlevel10k.sh && ./ZSH-Powerlevel10k.sh
 
 ##### SUPPORTED OS #####
 
-Arch Linux / Manjaro
-Debian / Kali / Ubuntu
+Arch Linux / Manjaro / Debian / Kali / Ubuntu
