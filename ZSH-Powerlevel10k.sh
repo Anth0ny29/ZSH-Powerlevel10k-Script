@@ -4,7 +4,6 @@ NOCOLOR='\033[0m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-OS="unknown"
 
 CheckSudo()
 {
@@ -158,7 +157,7 @@ if CheckSudo -eq 0; then
 	
 else 
 
-	echo -e "${RED}Le script ne peut pas lancer avec sudo"
+	echo -e "${RED}Le script ne peut pas lancer avec sudo${NOCOLOR}"
 	exit
 	
 fi 
