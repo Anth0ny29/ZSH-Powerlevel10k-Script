@@ -4,6 +4,7 @@ NOCOLOR='\033[0m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+OS="unknown"
 
 CheckSudo()
 {
@@ -19,19 +20,47 @@ fi
 Install_Packages()
 {
 
-sudo apt update && sudo apt install -y zsh curl git
-wait
+cat /etc/os-release |grep "arch" 2> /dev/null > /dev/null
+if [ $? -eq 0 ]; then
+	sudo pacman -S zsh curl git ttf-font-awesome
+	if [ $? -eq 0 ]; then
 
-if [ $? -eq 0 ]
-then
-
-        echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
-        chsh -s /bin/zsh
+		echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
+		chsh -s /bin/zsh
 		if [ $? -eq 1 ]; then
 			echo -e "${RED}Erreur, veuillez réessayer${NOCOLOR}"
 			chsh -s /bin/zsh
 		fi
+	else
+		exit 1
+
+
+	fi
+
+else
+
+	cat /etc/os-release |grep "Ubuntu\|debian" 2> /dev/null > /dev/null
+
+	if [ $? -eq 0 ]; then
+		sudo apt update && sudo apt install -y zsh curl git
+		if [ $? -eq 0 ]; then
+
+			echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
+			chsh -s /bin/zsh
+				if [ $? -eq 1 ]; then
+					echo -e "${RED}Erreur, veuillez réessayer${NOCOLOR}"
+					chsh -s /bin/zsh
+				fi
+		else
+
+			exit 1
+
+
+		fi
+	fi
 fi
+
+
 }
 
 if CheckSudo -eq 0; then
