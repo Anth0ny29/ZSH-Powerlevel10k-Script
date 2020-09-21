@@ -139,7 +139,6 @@ if CheckSudo -eq 0; then
 			cd /tmp/ && git clone --quiet https://github.com/romkatv/powerlevel10k
 			mv powerlevel10k/ $HOME/.oh-my-zsh/themes/
 			sed -i 's|ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' $HOME/.zshrc
-			echo -e "${GREEN}Plugin zsh-autosuggestions installé${NOCOLOR}"
 			echo -e "${GREEN}Thème Powerlevel10k installé${NOCOLOR}"
 		else
 			echo -e "${YELLOW}Installation du thème Powerlevel10k...${NOCOLOR}"
