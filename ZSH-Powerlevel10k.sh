@@ -38,7 +38,7 @@ if [ $? -eq 0 ]; then
 
 else
 
-	cat /etc/os-release |grep "Ubuntu\|debian" 2> /dev/null > /dev/null
+	cat /etc/os-release |grep "ubuntu\|Ubuntu\|debian" 2> /dev/null > /dev/null
 
 	if [ $? -eq 0 ]; then
 		sudo apt update && sudo apt install -y zsh curl git
