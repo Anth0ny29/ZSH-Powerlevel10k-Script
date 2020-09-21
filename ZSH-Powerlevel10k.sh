@@ -48,10 +48,11 @@ else
 
 			echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
 			chsh -s /bin/zsh
-				if [ $? -eq 1 ]; then
-					echo -e "${RED}Erreur, veuillez réessayer${NOCOLOR}"
-					chsh -s /bin/zsh
-				fi
+			while [ $? -ne 0 ]
+			do
+				echo -e "${RED}Erreur, veuillez réessayer${NOCOLOR}"
+				chsh -s /bin/zsh
+			done
 		else
 
 			exit 1
