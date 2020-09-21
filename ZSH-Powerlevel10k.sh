@@ -26,7 +26,8 @@ if [ $? -eq 0 ]; then
 
 		echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
 		chsh -s /bin/zsh
-		if [ $? -eq 1 ]; then
+		
+		if [ $? -ne 0 ]; then
 			echo -e "${RED}Erreur, veuillez réessayer${NOCOLOR}"
 			chsh -s /bin/zsh
 		fi
