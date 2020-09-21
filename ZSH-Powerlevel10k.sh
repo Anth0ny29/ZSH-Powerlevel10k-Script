@@ -43,7 +43,7 @@ else
 	cat /etc/os-release |grep "ubuntu\|Ubuntu\|debian" 2> /dev/null > /dev/null
 
 	if [ $? -eq 0 ]; then
-		sudo apt update && sudo apt install -y zsh curl git
+		sudo apt update && sudo apt install -y zsh curl git fonts-font-awesome
 		if [ $? -eq 0 ]; then
 
 			echo -e "${YELLOW}Les paquets nécessaires sont installés, changement de l'interpréteur de commandes...${NOCOLOR}"
@@ -155,7 +155,7 @@ if CheckSudo -eq 0; then
 	
 		
 	
-
+	echo ""
 	echo -e "${GREEN}Installation terminée ! Pour appliquer les changements, veuillez vous déconnecter de la session actuelle et vous reconnecter${NOCOLOR}"
 	
 else 
